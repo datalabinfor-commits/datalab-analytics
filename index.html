@@ -1,225 +1,198 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DataLab Analytics | Intelligent Data Solutions</title>
-  <style>
-    :root {
-      --primary-color: #19c1c1;
-      --bg-dark: #0f2a3a;
-      --bg-card: #143d52;
-      --text-white: #ffffff;
-      --text-muted: #d0e4ee;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataLab Analytics | Intelligent Data Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #19c1c1; [cite_start]/* El color cian de tu marca [cite: 106] */
+            --dark-bg: #0f2a3a; [cite_start]/* El azul oscuro de fondo [cite: 9] */
+            --card-bg: #143d52; [cite_start]/* Azul para tarjetas [cite: 10] */
+            --text-light: #ffffff;
+            --text-muted: #9fb8c5;
+        }
 
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--bg-dark);
-      color: var(--text-white);
-      line-height: 1.6;
-    }
+        * { margin: 0; padding: 0; box-box-sizing: border-box; }
 
-    /* Navegación */
-    nav {
-      background: rgba(15, 42, 58, 0.95);
-      padding: 20px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid var(--bg-card);
-    }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
 
-    .logo { font-weight: bold; font-size: 24px; color: var(--primary-color); }
+        /* Navegación Profesional */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: rgba(15, 42, 58, 0.9);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 90%;
+            top: 0;
+            z-index: 1000;
+        }
 
-    /* Header */
-    header {
-      padding: 100px 20px;
-      text-align: center;
-      background: linear-gradient(135deg, #0f2a3a, #1a4a63);
-    }
+        .logo { font-weight: 700; font-size: 1.5rem; color: var(--primary); }
 
-    header h1 { font-size: 48px; margin-bottom: 10px; }
-    header .subtitle { font-size: 20px; color: var(--primary-color); margin-bottom: 30px; }
+        /* Hero Section */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #0f2a3a 0%, #1a4a63 100%);
+            padding: 0 20px;
+        }
 
-    .btn {
-      background-color: var(--primary-color);
-      color: var(--bg-dark);
-      padding: 15px 35px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-      display: inline-block;
-    }
+        header h1 { font-size: 3.5rem; margin-bottom: 1rem; }
+        header p { font-size: 1.2rem; max-width: 800px; color: var(--text-muted); margin-bottom: 2rem; }
 
-    .btn:hover { opacity: 0.9; transform: translateY(-2px); }
+        .btn-main {
+            background: var(--primary);
+            color: var(--dark-bg);
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(25, 193, 193, 0.2);
+        }
 
-    section { padding: 80px 20px; max-width: 1100px; margin: auto; }
-    h2 { color: var(--primary-color); text-align: center; margin-bottom: 50px; font-size: 32px; }
+        .btn-main:hover { transform: translateY(-3px); box-shadow: 0 15px 25px rgba(25, 193, 193, 0.4); }
 
-    /* Grid de Problemas y Servicios */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-    }
+        /* Secciones Generales */
+        section { padding: 100px 10%; }
+        h2 { font-size: 2.5rem; color: var(--primary); margin-bottom: 3rem; text-align: center; }
 
-    .card {
-      background-color: var(--bg-card);
-      padding: 40px;
-      border-radius: 15px;
-      transition: 0.3s;
-      border: 1px solid transparent;
-    }
+        /* Grid de Servicios */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
 
-    .card:hover { border-color: var(--primary-color); }
-    .card h3 { margin-top: 0; color: var(--primary-color); }
+        .card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 20px;
+            transition: 0.3s;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
 
-    /* Precios */
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
+        .card:hover { transform: scale(1.05); border-color: var(--primary); }
+        .card h3 { margin-bottom: 1rem; color: var(--primary); }
 
-    .price-card {
-      background: #1a4a63;
-      padding: 30px;
-      border-radius: 15px;
-      text-align: center;
-      border: 2px solid var(--bg-card);
-    }
+        /* Tabla de Precios Profesional */
+        .pricing-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
 
-    .price-card.featured { border-color: var(--primary-color); transform: scale(1.05); }
-    .price { font-size: 32px; font-weight: bold; margin: 20px 0; }
-    .price span { font-size: 14px; font-weight: normal; }
-    
-    ul { list-style: none; padding: 0; text-align: left; }
-    li { margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 5px; }
+        .price-box {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 3rem 2rem;
+            border-radius: 25px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
 
-    footer {
-      background-color: #0b1f2b;
-      text-align: center;
-      padding: 50px 20px;
-      color: #9fb8c5;
-    }
-  </style>
+        .price-box.featured {
+            border: 2px solid var(--primary);
+            background: rgba(25, 193, 193, 0.05);
+        }
+
+        .price-box h3 { font-size: 1.8rem; margin-bottom: 1rem; }
+        .amount { font-size: 2.5rem; font-weight: 700; margin-bottom: 2rem; display: block; }
+        .amount span { font-size: 1rem; color: var(--text-muted); }
+
+        .price-list { list-style: none; text-align: left; margin-bottom: 2rem; }
+        .price-list li { margin-bottom: 12px; font-size: 0.9rem; }
+        .price-list li::before { content: "✓ "; color: var(--primary); font-weight: bold; }
+
+        footer {
+            padding: 50px;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.5rem; }
+            nav { justify-content: center; }
+        }
+    </style>
 </head>
 <body>
 
-<nav>
-  <div class="logo">DataLab Analytics</div>
-  <div>#2025</div>
-</nav>
+    <nav>
+        <div class="logo">DataLab Analytics</div>
+    </nav>
 
-<header>
-  <h1>Transformación Digital</h1>
-  <p class="subtitle">Automatización inteligente para empresas más eficientes</p>
-  <p style="max-width: 700px; margin: 0 auto 40px;">
-    [cite_start]Especialistas en desarrollar soluciones tecnológicas diseñadas para optimizar procesos y transformar datos en información útil para la toma de decisiones[cite: 9].
-  </p>
-  <a href="#contacto" class="btn">SOLICITAR DEMO</a>
-</header>
+    <header>
+        <h1>Transformación Digital para tu Negocio</h1> <p>Desarrollamos soluciones tecnológicas diseñadas para optimizar procesos, automatizar tareas y transformar datos en información útil.</p> <a href="#contacto" class="btn-main">SOLICITAR DEMO</a> </header>
 
-<section>
-  <h2>El Problema Operativo</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Ineficiencia Operativa</h3>
-      [cite_start]<p>Procesos manuales que generan pérdida de tiempo y errores frecuentes por falta de seguimiento[cite: 36, 39].</p>
-    </div>
-    <div class="card">
-      <h3>Desorden Informativo</h3>
-      [cite_start]<p>Decisiones basadas en información incompleta y dispersa en múltiples archivos o plataformas[cite: 41, 42].</p>
-    </div>
-  </div>
-</section>
+    <section id="problema">
+        <h2>¿Por qué elegirnos?</h2>
+        <div class="services-grid">
+            <div class="card">
+                <h3>Elimina la Ineficiencia</h3>
+                <p>Adiós a los procesos manuales y errores frecuentes que generan pérdidas de tiempo.</p> </div>
+            <div class="card">
+                <h3>Control Total</h3>
+                <p>Centralizamos tu información para que tomes decisiones basadas en datos reales, no en suposiciones.</p> </div>
+            <div class="card">
+                <h3>Escalabilidad</h3>
+                <p>Diseñamos productos que crecen junto con tu empresa y se integran de forma fluida.</p> </div>
+        </div>
+    </section>
 
-<section id="servicios" style="background: rgba(20, 61, 82, 0.3); border-radius: 30px;">
-  <h2>Nuestros Servicios</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Sistemas de Automatización</h3>
-      [cite_start]<p>Digitalización de tareas manuales con sistemas adaptados a tus necesidades específicas[cite: 52, 53].</p>
-    </div>
-    <div class="card">
-      <h3>Analítica de Datos</h3>
-      [cite_start]<p>Unificación de datos clave y generación de métricas claras para decisiones en tiempo real[cite: 55, 56].</p>
-    </div>
-    <div class="card">
-      <h3>Soporte Continuo</h3>
-      [cite_start]<p>Acompañamiento técnico, capacitación y ajustes constantes para la mejora del sistema[cite: 57, 58].</p>
-    </div>
-  </div>
-</section>
+    <section id="servicios" style="background: rgba(0,0,0,0.2);">
+        <h2>Nuestros Servicios</h2> <div class="services-grid">
+            <div class="card">
+                <h3>Automatización</h3> <p>Digitalización de tareas manuales y creación de sistemas adaptados a tu medida.</p> </div>
+            <div class="card">
+                <h3>Analítica Avanzada</h3> <p>Unificación de métricas clave y tableros de control en tiempo real.</p> </div>
+            <div class="card">
+                <h3>Soporte Especializado</h3> <p>Acompañamiento técnico constante y capacitación para tu equipo.</p> </div>
+        </div>
+    </section>
 
-<section>
-  <h2>Producto Demo</h2>
-  [cite_start]<p style="text-align: center; margin-bottom: 40px;">Visualiza el funcionamiento de nuestro sistema en un flujo real de operación[cite: 73].</p>
-  <div class="grid">
-    <div class="card" style="grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 40px; align-items: center;">
-      <div style="flex: 1; min-width: 300px;">
-        <h3>Funcionalidades Principales</h3>
-        <ul>
-          [cite_start]<li>✔ Gestión de clientes y pacientes [cite: 75]</li>
-          [cite_start]<li>✔ Agenda inteligente [cite: 76]</li>
-          [cite_start]<li>✔ Panel de indicadores (Dashboards) [cite: 77]</li>
-          [cite_start]<li>✔ Reportes y análisis automático [cite: 79]</li>
-        </ul>
-      </div>
-      <div style="flex: 1; background: #0f2a3a; padding: 20px; border-radius: 10px; text-align: center;">
-        <p>[Vista Previa del Dashboard]</p>
-        <div style="height: 150px; background: linear-gradient(transparent, var(--primary-color)); opacity: 0.2;"></div>
-      </div>
-    </div>
-  </div>
-</section>
+    <section id="precios">
+        <h2>Planes Estratégicos</h2> <div class="pricing-container">
+            <div class="price-box">
+                <h3>Paquete Básico</h3> <span class="amount">$899 <span>MXN/mes</span></span> <ul class="price-list">
+                    <li>Automatización básica de tareas</li> <li>Panel de reportes generales</li> <li>Respaldo en la nube mensual</li> <li>Soporte por chat</li> </ul>
+                <a href="#" class="btn-main" style="padding: 10px 30px;">Elegir Plan</a>
+            </div>
 
-<section id="paquetes">
-  <h2>Nuestros Paquetes</h2>
-  <div class="pricing-grid">
-    <div class="price-card">
-      <h3>Básico</h3>
-      <div class="price">$899 <span>MXN/mes</span></div>
-      <ul>
-        [cite_start]<li>Automatización básica [cite: 108]</li>
-        [cite_start]<li>Panel de reportes generales [cite: 109]</li>
-        [cite_start]<li>Respaldo mensual en la nube [cite: 111]</li>
-        [cite_start]<li>Soporte por chat [cite: 112]</li>
-      </ul>
-    </div>
-    <div class="price-card featured">
-      <h3>Profesional</h3>
-      <div class="price">$1,899 <span>MXN/mes</span></div>
-      <ul>
-        [cite_start]<li>Todo lo del Plan Básico [cite: 116]</li>
-        [cite_start]<li>Integración con herramientas [cite: 117]</li>
-        [cite_start]<li>Seguimiento a clientes y avisos [cite: 120]</li>
-        [cite_start]<li>Soporte prioritario [cite: 123]</li>
-      </ul>
-    </div>
-    <div class="price-card">
-      <h3>Premium</h3>
-      <div class="price">$3,200 <span>MXN/mes</span></div>
-      <ul>
-        [cite_start]<li>Todo lo del Plan Profesional [cite: 127]</li>
-        [cite_start]<li>Automatizaciones personalizadas [cite: 128]</li>
-        [cite_start]<li>Sesión mensual de resultados [cite: 134]</li>
-        [cite_start]<li>Ajustes y mejoras mensuales [cite: 133]</li>
-      </ul>
-    </div>
-  </div>
-</section>
+            <div class="price-box featured">
+                <div style="background: var(--primary); color: var(--dark-bg); position: absolute; top: 15px; right: -30px; transform: rotate(45deg); padding: 5px 40px; font-size: 0.7rem; font-weight: bold;">POPULAR</div>
+                <h3>Paquete Profesional</h3> <span class="amount">$1,899 <span>MXN/mes</span></span> <ul class="price-list">
+                    <li>Todo lo del Paquete Básico</li> <li>Integración con herramientas modernas</li> <li>Seguimiento automático a clientes</li> <li>Soporte prioritario</li> </ul>
+                <a href="#" class="btn-main" style="padding: 10px 30px;">Elegir Plan</a>
+            </div>
 
-<footer>
-  [cite_start]<p><strong>DataLab Analytics</strong> · Intelligent Data Solutions [cite: 1]</p>
-  [cite_start]<p>© 2025 · Transformando datos en decisiones inteligentes[cite: 5].</p>
-</footer>
+            <div class="price-box">
+                <h3>Paquete Premium</h3> <span class="amount">$3,200 <span>MXN/mes</span></span> <ul class="price-list">
+                    <li>Todo lo del Paquete Profesional</li> <li>Automatizaciones personalizadas</li> <li>Dashboards completos y análisis</li> <li>Sesión mensual de resultados</li> </ul>
+                <a href="#" class="btn-main" style="padding: 10px 30px;">Elegir Plan</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>DataLab Analytics © 2025 | Intelligent Data Solutions</p> <p style="font-size: 0.8rem; margin-top: 10px;">Diseñamos herramientas digitales para operar de forma inteligente.</p> </footer>
 
 </body>
 </html>
