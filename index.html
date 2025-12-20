@@ -11,7 +11,6 @@
             --primary: #19c1c1;
             --dark-bg: #0f2a3a;
             --light-bg: #f4f7f9;
-            --text-light: #ffffff;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -43,7 +42,7 @@
         .page-content { display: none; padding: 120px 10% 60px; min-height: 80vh; }
         .active-page { display: block; }
         
-        section { padding: 80px 0; }
+        section { padding: 60px 0; }
         .flex { display: flex; align-items: center; gap: 50px; flex-wrap: wrap; }
         .flex-item { flex: 1; min-width: 320px; }
         .img-container img { width: 100%; border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.4); }
@@ -56,19 +55,20 @@
         .price-card {
             background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);
             padding: 35px 25px; border-radius: 25px; flex: 1; min-width: 280px; max-width: 350px;
-            transition: 0.4s;
         }
-        .price-card.featured { border: 2px solid var(--primary); transform: scale(1.05); background: rgba(25, 193, 193, 0.05); }
         .price-card h3 { color: var(--primary); margin-bottom: 15px; }
-        .price-card ul { list-style: none; text-align: left; font-size: 0.9rem; margin-top: 15px; }
+        .price-card ul { list-style: none; text-align: left; font-size: 0.85rem; margin-top: 15px; }
         .price-card li { margin-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 5px; }
 
-        /* Formulario Estilizado */
+        /* Problema Box */
+        .p-box { background: rgba(255,255,255,0.05); padding: 20px; border-radius: 15px; border-left: 4px solid var(--primary); margin-bottom: 15px; }
+
+        /* Formulario */
         .contact-card { background: white; padding: 40px; border-radius: 25px; color: var(--dark-bg); max-width: 800px; margin: 0 auto; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
         .contact-form { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         .contact-form input, .contact-form textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 10px; font-family: inherit; }
         .full-w { grid-column: span 2; }
-        .btn-main { background: var(--primary); color: var(--dark-bg); padding: 16px 40px; border-radius: 50px; text-decoration: none; font-weight: 700; border: none; cursor: pointer; }
+        .btn-main { background: var(--primary); color: var(--dark-bg); padding: 16px 40px; border-radius: 50px; text-decoration: none; font-weight: 700; border: none; cursor: pointer; display: inline-block;}
 
         footer { padding: 60px 10%; background: #08161f; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); }
     </style>
@@ -90,7 +90,7 @@
             <div class="flex">
                 <div class="flex-item" data-aos="fade-right">
                     <h1 class="gradient-text">DataLab es la transformación para tu negocio.</h1>
-                    [cite_start]<p>Desarrollamos soluciones tecnológicas diseñadas para optimizar procesos y transformar datos en información útil[cite: 9].</p>
+                    <p>Desarrollamos soluciones tecnológicas diseñadas para optimizar procesos y transformar datos en información útil.</p>
                     <br>
                     <a href="https://forms.gle/iKZwbfWLFL7P9Zvx6" target="_blank" class="btn-main">Solicitar demo</a>
                 </div>
@@ -100,15 +100,15 @@
             </div>
         </section>
 
-        <section style="background: rgba(255,255,255,0.03); border-radius: 40px; padding: 60px 5%;">
+        <section>
             <div class="flex" style="flex-direction: row-reverse;">
                 <div class="flex-item" data-aos="fade-left">
-                    <h2 style="color: white;">Problema operativo</h2>
-                    [cite_start]<p>La mayoría de las empresas operan con procesos manuales e información dispersa[cite: 35].</p>
-                    <ul style="margin-top: 20px; list-style: none;">
-                        [cite_start]<li style="margin-bottom: 10px; border-left: 4px solid var(--primary); padding-left: 15px;"><strong>Ineficiencia:</strong> Pérdida de tiempo y errores frecuentes[cite: 36, 38].</li>
-                        [cite_start]<li style="border-left: 4px solid var(--primary); padding-left: 15px;"><strong>Desorden:</strong> Información incompleta para decidir[cite: 42].</li>
-                    </ul>
+                    <h2>Problema operativo</h2>
+                    <p>La mayoría de las empresas operan con procesos manuales e información dispersa.</p>
+                    <div style="margin-top: 25px;">
+                        <div class="p-box"><strong>Ineficiencia Operativa:</strong> Pérdida de tiempo y errores frecuentes.</div>
+                        <div class="p-box"><strong>Desorden Informativo:</strong> Información incompleta para decidir.</div>
+                    </div>
                 </div>
                 <div class="flex-item img-container" data-aos="fade-right">
                     <img src="imagen8.png" alt="Problema">
@@ -116,40 +116,65 @@
             </div>
         </section>
 
+        <section>
+            <div class="flex">
+                <div class="flex-item" data-aos="fade-right">
+                    <h2>¿Por qué DataLab Analytics?</h2>
+                    <p>Nuestro enfoque combina analítica, negocio y tecnología para maximizar resultados. Diseñamos soluciones intuitivas que generan impacto real.</p>
+                </div>
+                <div class="flex-item img-container" data-aos="fade-left">
+                    <img src="imagen1.png" alt="Elegirnos">
+                </div>
+            </div>
+        </section>
+
+        <section style="text-align: center;">
+            <h2 data-aos="fade-up">Nuestro Producto en Acción</h2>
+            <p>Visualiza el flujo real de operación centralizado en un solo lugar.</p>
+            <div class="img-container" style="margin-top: 40px;" data-aos="zoom-in">
+                <img src="imagen4.png" alt="Demo">
+            </div>
+        </section>
+
         <section id="paquetes" style="text-align: center;">
             <h2 data-aos="fade-up">Nuestros Paquetes</h2>
             <div class="pricing-grid">
                 <div class="price-card" data-aos="flip-left" data-aos-delay="100">
-                    <h3>Básico</h3>
-                    [cite_start]<p style="font-size: 1.5rem; font-weight: bold;">$899 MXN/mes [cite: 106]</p>
+                    <h3>Paquete Básico</h3>
+                    <p style="font-size: 1.5rem; font-weight: bold;">$899 MXN/mes</p>
                     <ul>
-                        [cite_start]<li>✔ Automatización básica [cite: 108]</li>
-                        [cite_start]<li>✔ Panel de reportes generales [cite: 109]</li>
-                        [cite_start]<li>✔ Respaldo en la nube [cite: 110]</li>
+                        <li>✔ Automatización básica de tareas</li>
+                        <li>✔ Panel de reportes generales</li>
+                        <li>✔ Respaldo mensual de datos</li>
+                        <li>✔ Soporte por chat</li>
                     </ul>
                 </div>
-                <div class="price-card featured" data-aos="flip-left" data-aos-delay="200">
-                    <h3>Profesional</h3>
-                    [cite_start]<p style="font-size: 1.5rem; font-weight: bold;">$1,899 MXN/mes [cite: 114]</p>
+                <div class="price-card" style="border: 2px solid var(--primary); background: rgba(25,193,193,0.05);" data-aos="flip-left" data-aos-delay="200">
+                    <h3>Paquete Profesional</h3>
+                    <p style="font-size: 1.5rem; font-weight: bold;">$1,899 MXN/mes</p>
                     <ul>
-                        [cite_start]<li>✔ Todo lo del Básico [cite: 116]</li>
-                        [cite_start]<li>✔ Integración con herramientas [cite: 117]</li>
-                        [cite_start]<li>✔ Seguimiento a clientes [cite: 120]</li>
+                        <li>✔ Todo lo del Paquete Básico</li>
+                        <li>✔ Integración con herramientas modernas</li>
+                        <li>✔ Automatización de seguimiento</li>
+                        <li>✔ Métricas clave en vivo</li>
+                        <li>✔ Soporte prioritario</li>
                     </ul>
                 </div>
                 <div class="price-card" data-aos="flip-left" data-aos-delay="300">
-                    <h3>Premium</h3>
-                    [cite_start]<p style="font-size: 1.5rem; font-weight: bold;">$3,200 MXN/mes [cite: 125]</p>
+                    <h3>Paquete Premium</h3>
+                    <p style="font-size: 1.5rem; font-weight: bold;">$3,200 MXN/mes</p>
                     <ul>
-                        [cite_start]<li>✔ Todo lo del Profesional [cite: 127]</li>
-                        [cite_start]<li>✔ Dashboards completos [cite: 130]</li>
-                        [cite_start]<li>✔ Sesión mensual de resultados [cite: 134]</li>
+                        <li>✔ Todo lo del Paquete Profesional</li>
+                        <li>✔ Automatizaciones personalizadas</li>
+                        <li>✔ Dashboards completos</li>
+                        <li>✔ Sesión mensual de resultados</li>
+                        <li>✔ Mejoras continuas del sistema</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <section id="footer-contact">
+        <section>
             <div class="contact-card" data-aos="fade-up">
                 <h2 style="text-align: center; margin-bottom: 10px;">Contáctanos</h2>
                 <p style="text-align: center; margin-bottom: 30px;">Estamos listos para potenciar tu empresa.</p>
@@ -169,14 +194,9 @@
         <h2 style="text-align: center;">Quiénes Somos</h2>
         <div class="flex" style="margin-top: 40px;">
             <div class="flex-item">
-                [cite_start]<p><strong>DataLab Analytics</strong> optimiza procesos y transforma datos en información útil[cite: 9].</p>
+                <p><strong>DataLab Analytics</strong> es especialista en desarrollar soluciones para optimizar procesos y automatizar tareas.</p>
                 <br>
-                [cite_start]<h3 style="color: var(--primary);">¿Qué hacemos? [cite: 13]</h3>
-                <ul style="margin-top: 15px; list-style: none;">
-                    [cite_start]<li>✔ Automatización de procesos [cite: 15]</li>
-                    [cite_start]<li>✔ Sistemas personalizados [cite: 16]</li>
-                    [cite_start]<li>✔ Gestión y análisis de datos [cite: 18]</li>
-                </ul>
+                <p>Combinamos analítica y diseño de sistemas para ayudar a empresas a mejorar su eficiencia y obtener control total.</p>
             </div>
             <div class="flex-item img-container">
                 <img src="imagen7.png" alt="Nosotros">
@@ -184,7 +204,14 @@
         </div>
         <div class="flex" style="margin-top: 60px; flex-direction: row-reverse;">
             <div class="flex-item">
-                [cite_start]<p>Diseñamos herramientas digitales para operar de forma inteligente[cite: 14].</p>
+                <h3 style="color: var(--primary); margin-bottom: 15px;">¿Qué hacemos?</h3>
+                <p>Diseñamos herramientas digitales inteligentes:</p>
+                <ul style="margin-top: 15px; list-style: none;">
+                    <li>✔ Automatización de procesos operativos</li>
+                    <li>✔ Desarrollo de sistemas personalizados</li>
+                    <li>✔ Integración de flujos de trabajo</li>
+                    <li>✔ Gestión y análisis de datos</li>
+                </ul>
             </div>
             <div class="flex-item img-container">
                 <img src="imagen3.png" alt="Servicios">
@@ -194,7 +221,7 @@
 
     <div id="blog" class="page-content" style="text-align: center;">
         <h2>Nuestro Blog</h2>
-        <p style="margin-top: 40px; color: #9fb8c5;">Próximamente compartiremos contenido sobre analítica y tecnología.</p>
+        <p style="margin-top: 40px; color: #9fb8c5;">Próximamente compartiremos artículos sobre tecnología y analítica.</p>
     </div>
 
     <div id="contacto-page" class="page-content">
@@ -213,7 +240,7 @@
 
     <footer>
         <img src="logo.png" alt="Logo" style="height: 50px; margin-bottom: 20px;">
-        [cite_start]<p>DataLab Analytics · Intelligent Data Solutions [cite: 1]</p>
+        <p>DataLab Analytics · Intelligent Data Solutions</p>
         <p style="opacity: 0.6; margin-top: 10px;">© 2025 Todos los derechos reservados.</p>
     </footer>
 
@@ -222,13 +249,11 @@
         AOS.init({ duration: 1000, once: true });
 
         function showPage(pageId) {
-            // Ocultar todas las secciones
             document.querySelectorAll('.page-content').forEach(section => {
                 section.classList.remove('active-page');
             });
-            // Mostrar la seleccionada
             document.getElementById(pageId).classList.add('active-page');
-            window.scrollTo(0, 0); // Regresar al inicio de la vista
+            window.scrollTo(0, 0);
         }
     </script>
 </body>
