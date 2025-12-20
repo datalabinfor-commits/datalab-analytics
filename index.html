@@ -10,246 +10,226 @@
         :root {
             --primary: #19c1c1;
             --dark-bg: #0f2a3a;
-            --card-bg: rgba(20, 61, 82, 0.8);
             --light-bg: #f4f7f9;
             --text-light: #ffffff;
-            --text-dark: #0f2a3a;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; line-height: 1.6; scroll-behavior: smooth; background: var(--dark-bg); color: white; overflow-x: hidden; }
+        body { font-family: 'Inter', sans-serif; background: var(--dark-bg); color: white; overflow-x: hidden; }
 
         /* Navegación */
         nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 7%;
-            background: rgba(15, 42, 58, 0.95);
-            backdrop-filter: blur(15px);
-            position: fixed;
-            width: 100%;
-            top: 0; z-index: 1000;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 10px 7%; background: rgba(15, 42, 58, 0.95);
+            backdrop-filter: blur(15px); position: fixed; width: 100%; top: 0; z-index: 1000;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .logo img { height: 75px; width: auto; }
-        .nav-links a { color: white; text-decoration: none; margin-left: 25px; font-weight: 500; }
-        .btn-demo-nav {
-            background: var(--primary);
-            color: var(--dark-bg) !important;
-            padding: 10px 25px;
-            border-radius: 50px;
-            font-weight: 700 !important;
-        }
+        .logo img { height: 75px; cursor: pointer; }
+        .nav-links a { color: white; text-decoration: none; margin-left: 25px; font-weight: 500; cursor: pointer; transition: 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
+        .btn-demo-nav { background: var(--primary); color: var(--dark-bg) !important; padding: 10px 25px; border-radius: 50px; font-weight: 700 !important; }
 
-        /* Secciones */
-        section { padding: 100px 10%; }
+        /* Animación de Colores en el Título */
+        .gradient-text {
+            background: linear-gradient(90deg, #ffffff, #19c1c1, #ffffff);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient 3s linear infinite;
+        }
+        @keyframes gradient { to { background-position: 200% center; } }
+
+        /* Contenedores de Sección */
+        .page-content { display: none; padding: 120px 10% 60px; min-height: 80vh; }
+        .active-page { display: block; }
+        
+        section { padding: 80px 0; }
         .flex { display: flex; align-items: center; gap: 50px; flex-wrap: wrap; }
         .flex-item { flex: 1; min-width: 320px; }
         .img-container img { width: 100%; border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.4); }
 
-        h1 { font-size: 3.2rem; color: var(--primary); margin-bottom: 20px; }
-        h2 { font-size: 2.5rem; margin-bottom: 30px; color: var(--primary); }
-        .bg-white { background: white; color: var(--text-dark); }
-        .bg-white h2 { color: var(--dark-bg); }
+        h1 { font-size: 3.5rem; margin-bottom: 20px; line-height: 1.1; }
+        h2 { font-size: 2.8rem; margin-bottom: 30px; color: var(--primary); }
 
-        .btn-main {
-            background: var(--primary);
-            color: var(--dark-bg);
-            padding: 16px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            display: inline-block;
-        }
-
-        /* Bloques de Problema */
-        .p-box { background: #f0f4f7; padding: 25px; border-radius: 15px; border-left: 5px solid var(--primary); margin-bottom: 15px; }
-
-        /* Planes */
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+        /* Estilo Planes (Tres juntos) */
+        .pricing-grid { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 40px; }
         .price-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 40px 25px;
-            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 35px 25px; border-radius: 25px; flex: 1; min-width: 280px; max-width: 350px;
+            transition: 0.4s;
         }
+        .price-card.featured { border: 2px solid var(--primary); transform: scale(1.05); background: rgba(25, 193, 193, 0.05); }
         .price-card h3 { color: var(--primary); margin-bottom: 15px; }
-        .price-card ul { list-style: none; text-align: left; font-size: 0.95rem; }
-        .price-card li { margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 5px; }
+        .price-card ul { list-style: none; text-align: left; font-size: 0.9rem; margin-top: 15px; }
+        .price-card li { margin-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 5px; }
 
-        /* Formulario Contacto */
-        .contact-form {
-            background: #fff; padding: 40px; border-radius: 25px;
-            display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        .contact-form input, .contact-form textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 10px; }
+        /* Formulario Estilizado */
+        .contact-card { background: white; padding: 40px; border-radius: 25px; color: var(--dark-bg); max-width: 800px; margin: 0 auto; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .contact-form { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .contact-form input, .contact-form textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 10px; font-family: inherit; }
         .full-w { grid-column: span 2; }
+        .btn-main { background: var(--primary); color: var(--dark-bg); padding: 16px 40px; border-radius: 50px; text-decoration: none; font-weight: 700; border: none; cursor: pointer; }
 
-        footer { padding: 60px 10%; background: #08161f; text-align: center; }
+        footer { padding: 60px 10%; background: #08161f; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo"><img src="logo.png" alt="DataLab Logo"></div>
+        <div class="logo" onclick="showPage('home')"><img src="logo.png" alt="DataLab Logo"></div>
         <div class="nav-links">
-            <a href="#quienes-somos">Quiénes somos</a>
-            <a href="#servicios">Servicios</a>
-            <a href="#blog">Blog</a>
-            <a href="#contacto">Contacto</a>
+            <a onclick="showPage('quienes-somos')">Quiénes somos</a>
+            <a onclick="showPage('blog')">Blog</a>
+            <a onclick="showPage('contacto-page')">Contacto</a>
             <a href="https://forms.gle/iKZwbfWLFL7P9Zvx6" target="_blank" class="btn-demo-nav">Solicitar demo</a>
         </div>
     </nav>
 
-    <section id="inicio">
-        <div class="flex">
-            <div class="flex-item" data-aos="fade-right">
-                <h1>DataLab es la transformación para tu negocio.</h1>
-                <p>Desarrollamos soluciones tecnológicas diseñadas para optimizar procesos, automatizar tareas y transformar datos en información útil.</p>
-                <br>
-                <a href="https://forms.gle/iKZwbfWLFL7P9Zvx6" target="_blank" class="btn-main">Solicitar demo</a>
-            </div>
-            <div class="flex-item img-container" data-aos="zoom-in">
-                <img src="imagen2.png" alt="Transformación">
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-white">
-        <div class="flex" style="flex-direction: row-reverse;">
-            <div class="flex-item" data-aos="fade-left">
-                <h2>Problema operativo</h2>
-                <p>La mayoría de las empresas operan con procesos manuales, información dispersa y poca visibilidad de sus actividades.</p>
-                <div style="margin-top: 25px;">
-                    <div class="p-box"><strong>Ineficiencia Operativa:</strong> Falta de control y seguimiento.</div>
-                    <div class="p-box"><strong>Desorden:</strong> Información aislada y difícil de consultar.</div>
+    <div id="home" class="page-content active-page">
+        <section>
+            <div class="flex">
+                <div class="flex-item" data-aos="fade-right">
+                    <h1 class="gradient-text">DataLab es la transformación para tu negocio.</h1>
+                    [cite_start]<p>Desarrollamos soluciones tecnológicas diseñadas para optimizar procesos y transformar datos en información útil[cite: 9].</p>
+                    <br>
+                    <a href="https://forms.gle/iKZwbfWLFL7P9Zvx6" target="_blank" class="btn-main">Solicitar demo</a>
+                </div>
+                <div class="flex-item img-container" data-aos="zoom-in">
+                    <img src="imagen2.png" alt="Transformación">
                 </div>
             </div>
-            <div class="flex-item img-container" data-aos="fade-right">
-                <img src="imagen8.png" alt="Problema">
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="quienes-somos">
-        <div class="flex">
-            <div class="flex-item" data-aos="fade-up">
-                <h2>¿Quiénes somos?</h2>
-                <p>Empresa especializada en desarrollar soluciones tecnológicas diseñadas para optimizar procesos, automatizar tareas y transformar datos en información útil para la toma de decisiones.</p>
+        <section style="background: rgba(255,255,255,0.03); border-radius: 40px; padding: 60px 5%;">
+            <div class="flex" style="flex-direction: row-reverse;">
+                <div class="flex-item" data-aos="fade-left">
+                    <h2 style="color: white;">Problema operativo</h2>
+                    [cite_start]<p>La mayoría de las empresas operan con procesos manuales e información dispersa[cite: 35].</p>
+                    <ul style="margin-top: 20px; list-style: none;">
+                        [cite_start]<li style="margin-bottom: 10px; border-left: 4px solid var(--primary); padding-left: 15px;"><strong>Ineficiencia:</strong> Pérdida de tiempo y errores frecuentes[cite: 36, 38].</li>
+                        [cite_start]<li style="border-left: 4px solid var(--primary); padding-left: 15px;"><strong>Desorden:</strong> Información incompleta para decidir[cite: 42].</li>
+                    </ul>
+                </div>
+                <div class="flex-item img-container" data-aos="fade-right">
+                    <img src="imagen8.png" alt="Problema">
+                </div>
+            </div>
+        </section>
+
+        <section id="paquetes" style="text-align: center;">
+            <h2 data-aos="fade-up">Nuestros Paquetes</h2>
+            <div class="pricing-grid">
+                <div class="price-card" data-aos="flip-left" data-aos-delay="100">
+                    <h3>Básico</h3>
+                    [cite_start]<p style="font-size: 1.5rem; font-weight: bold;">$899 MXN/mes [cite: 106]</p>
+                    <ul>
+                        [cite_start]<li>✔ Automatización básica [cite: 108]</li>
+                        [cite_start]<li>✔ Panel de reportes generales [cite: 109]</li>
+                        [cite_start]<li>✔ Respaldo en la nube [cite: 110]</li>
+                    </ul>
+                </div>
+                <div class="price-card featured" data-aos="flip-left" data-aos-delay="200">
+                    <h3>Profesional</h3>
+                    [cite_start]<p style="font-size: 1.5rem; font-weight: bold;">$1,899 MXN/mes [cite: 114]</p>
+                    <ul>
+                        [cite_start]<li>✔ Todo lo del Básico [cite: 116]</li>
+                        [cite_start]<li>✔ Integración con herramientas [cite: 117]</li>
+                        [cite_start]<li>✔ Seguimiento a clientes [cite: 120]</li>
+                    </ul>
+                </div>
+                <div class="price-card" data-aos="flip-left" data-aos-delay="300">
+                    <h3>Premium</h3>
+                    [cite_start]<p style="font-size: 1.5rem; font-weight: bold;">$3,200 MXN/mes [cite: 125]</p>
+                    <ul>
+                        [cite_start]<li>✔ Todo lo del Profesional [cite: 127]</li>
+                        [cite_start]<li>✔ Dashboards completos [cite: 130]</li>
+                        [cite_start]<li>✔ Sesión mensual de resultados [cite: 134]</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="footer-contact">
+            <div class="contact-card" data-aos="fade-up">
+                <h2 style="text-align: center; margin-bottom: 10px;">Contáctanos</h2>
+                <p style="text-align: center; margin-bottom: 30px;">Estamos listos para potenciar tu empresa.</p>
+                <form class="contact-form">
+                    <input type="text" placeholder="Nombres completos">
+                    <input type="email" placeholder="Correo electrónico">
+                    <input type="tel" placeholder="Teléfono">
+                    <input type="text" placeholder="Empresa">
+                    <textarea class="full-w" rows="3" placeholder="Mensaje / Requerimiento"></textarea>
+                    <button type="submit" class="btn-main full-w">Enviar Mensaje</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <div id="quienes-somos" class="page-content">
+        <h2 style="text-align: center;">Quiénes Somos</h2>
+        <div class="flex" style="margin-top: 40px;">
+            <div class="flex-item">
+                [cite_start]<p><strong>DataLab Analytics</strong> optimiza procesos y transforma datos en información útil[cite: 9].</p>
                 <br>
-                <p>Combinamos analítica, automatización y diseño de sistemas para ayudar empresas a mejorar su eficiencia, reducir tiempos operativos y obtener control sobre sus operaciones.</p>
-            </div>
-            <div class="flex-item img-container" data-aos="zoom-in">
-                <img src="imagen7.png" alt="Quiénes somos">
-            </div>
-        </div>
-        <div class="flex" style="margin-top: 80px; flex-direction: row-reverse;">
-            <div class="flex-item" data-aos="fade-up">
-                <h2>¿Qué hacemos?</h2>
-                <p>Diseñamos herramientas digitales que permiten a las empresas operar de forma más inteligente.</p>
-                <ul style="margin-top: 20px; list-style: none;">
-                    <li>✔ Automatización de procesos operativos</li>
-                    <li>✔ Desarrollo de sistemas personalizados</li>
-                    <li>✔ Integración de flujos de trabajo digitales</li>
-                    <li>✔ Gestión y análisis de datos</li>
+                [cite_start]<h3 style="color: var(--primary);">¿Qué hacemos? [cite: 13]</h3>
+                <ul style="margin-top: 15px; list-style: none;">
+                    [cite_start]<li>✔ Automatización de procesos [cite: 15]</li>
+                    [cite_start]<li>✔ Sistemas personalizados [cite: 16]</li>
+                    [cite_start]<li>✔ Gestión y análisis de datos [cite: 18]</li>
                 </ul>
             </div>
-            <div class="flex-item img-container" data-aos="zoom-in">
-                <img src="imagen3.png" alt="Qué hacemos">
+            <div class="flex-item img-container">
+                <img src="imagen7.png" alt="Nosotros">
             </div>
         </div>
-    </section>
-
-    <section class="bg-white">
-        <div class="flex">
-            <div class="flex-item" data-aos="fade-right">
-                <h2>¿Por qué DataLab Analytics?</h2>
-                <p>Nuestro enfoque combina analítica, negocio y tecnología para maximizar resultados. Diseñamos soluciones intuitivas y escalables que generan impacto real.</p>
+        <div class="flex" style="margin-top: 60px; flex-direction: row-reverse;">
+            <div class="flex-item">
+                [cite_start]<p>Diseñamos herramientas digitales para operar de forma inteligente[cite: 14].</p>
             </div>
-            <div class="flex-item img-container" data-aos="fade-left">
-                <img src="imagen1.png" alt="Elegirnos">
+            <div class="flex-item img-container">
+                <img src="imagen3.png" alt="Servicios">
             </div>
         </div>
-    </section>
+    </div>
 
-    <section id="servicios">
-        <div style="text-align: center;">
-            <h2>Nuestro Producto en Acción</h2>
-            <p>Visualiza el flujo real de operación centralizado.</p>
-            <div class="img-container" style="margin-top: 40px;" data-aos="zoom-in">
-                <img src="imagen4.png" alt="Demo">
-            </div>
-        </div>
-    </section>
+    <div id="blog" class="page-content" style="text-align: center;">
+        <h2>Nuestro Blog</h2>
+        <p style="margin-top: 40px; color: #9fb8c5;">Próximamente compartiremos contenido sobre analítica y tecnología.</p>
+    </div>
 
-    <section id="blog" class="bg-white">
-        <div style="text-align: center;">
-            <h2>Blog</h2>
-            <p>Próximamente compartiremos artículos sobre tecnología y analítica de datos.</p>
-        </div>
-    </section>
-
-    <section id="paquetes">
-        <h2 style="text-align: center;">Nuestros Paquetes</h2>
-        <div class="pricing-grid">
-            <div class="price-card" data-aos="flip-left">
-                <h3>Paquete Básico</h3>
-                <p style="font-size: 1.5rem; font-weight: bold;">$899 MXN/mes</p>
-                <ul style="margin-top: 15px;">
-                    <li>• Automatización básica de tareas</li>
-                    <li>• Panel de reportes generales</li>
-                    <li>• Respaldo de datos mensual</li>
-                    <li>• Soporte por chat</li>
-                </ul>
-            </div>
-            <div class="price-card" data-aos="flip-left" style="border-color: var(--primary);">
-                <h3>Paquete Profesional</h3>
-                <p style="font-size: 1.5rem; font-weight: bold;">$1,899 MXN/mes</p>
-                <ul style="margin-top: 15px;">
-                    <li>• Todo lo del Paquete Básico</li>
-                    <li>• Integración con herramientas comunes</li>
-                    <li>• Automatización de seguimiento y avisos</li>
-                    <li>• Métricas clave en vivo</li>
-                    <li>• Soporte prioritario</li>
-                </ul>
-            </div>
-            <div class="price-card" data-aos="flip-left">
-                <h3>Paquete Premium</h3>
-                <p style="font-size: 1.5rem; font-weight: bold;">$3,200 MXN/mes</p>
-                <ul style="margin-top: 15px;">
-                    <li>• Todo lo del Paquete Profesional</li>
-                    <li>• Automatizaciones personalizadas</li>
-                    <li>• Dashboards más completos</li>
-                    <li>• Sesión mensual de resultados</li>
-                    <li>• Mejoras continuas</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section id="contacto" class="bg-white">
-        <div style="max-width: 800px; margin: 0 auto;">
-            <h2 style="text-align: center;">Contacto</h2>
-            <form class="contact-form">
+    <div id="contacto-page" class="page-content">
+        <div class="contact-card">
+            <h2 style="text-align: center;">Contacto Directo</h2>
+            <form class="contact-form" style="margin-top: 30px;">
                 <input type="text" placeholder="Nombres completos">
                 <input type="email" placeholder="Correo electrónico">
                 <input type="tel" placeholder="Teléfono">
                 <input type="text" placeholder="Empresa">
-                <textarea class="full-w" rows="4" placeholder="Mensaje / Requerimiento"></textarea>
-                <button type="submit" class="btn-main full-w" style="border:none; cursor:pointer;">Enviar Mensaje</button>
+                <textarea class="full-w" rows="5" placeholder="Cuéntanos sobre tu requerimiento..."></textarea>
+                <button type="submit" class="btn-main full-w">Enviar Requerimiento</button>
             </form>
         </div>
-    </section>
+    </div>
 
     <footer>
         <img src="logo.png" alt="Logo" style="height: 50px; margin-bottom: 20px;">
-        <p>DataLab Analytics · Intelligent Data Solutions</p>
-        <p>© 2025 Todos los derechos reservados.</p>
+        [cite_start]<p>DataLab Analytics · Intelligent Data Solutions [cite: 1]</p>
+        <p style="opacity: 0.6; margin-top: 10px;">© 2025 Todos los derechos reservados.</p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script> AOS.init({ duration: 1000, once: true }); </script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        function showPage(pageId) {
+            // Ocultar todas las secciones
+            document.querySelectorAll('.page-content').forEach(section => {
+                section.classList.remove('active-page');
+            });
+            // Mostrar la seleccionada
+            document.getElementById(pageId).classList.add('active-page');
+            window.scrollTo(0, 0); // Regresar al inicio de la vista
+        }
+    </script>
 </body>
 </html>
