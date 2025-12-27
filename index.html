@@ -190,19 +190,14 @@ footer{padding:60px;background:#08161f;text-align:center}
 </div>
 </section>
 
-
-
 <section id="demo" class="section-light">
 <div class="container">
 <div class="contact-card" data-aos="fade-up">
 <h2 style="text-align:center">Solicitar Demo</h2>
 
-<form class="contact-form"
+<form class="contact-form" id="contactForm">
 action="https://formsubmit.co/DataLab.infor@gmail.com"
 method="POST">
-
-<input type="hidden" name="_subject" value="Nueva solicitud de demo DataLab">
-<input type="hidden" name="_autoresponse" value="Gracias por contactar a DataLab. Pronto te escribiremos.">
 
 <input type="text" name="Nombre" placeholder="Nombre completo" required>
 <input type="email" name="Email" placeholder="Correo electronico" required>
@@ -243,5 +238,36 @@ document.getElementById('navLinks').classList.remove('active')
 }
 </script>
 
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const data = {
+    nombre: this.Nombre.value,
+    email: this.Email.value,
+    empresa: this.Empresa.value,
+    tipo: this["Tipo de empresa"].value,
+    necesidad: this.Necesidad.value
+  };
+
+  fetch("https://script.google.com/macros/s/AKfycbxpl7W83cGAPg1Jr02zM6fSE1wNn2xzVJEIngP2IfxF58hKbrLwGWDapVoh2dlSPGaG/exec", {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+  .then(response => response.json())
+  .then(res => {
+    alert("Gracias, hemos recibido tu solicitud de demo.");
+    this.reset();
+  })
+  .catch(error => {
+    alert("Ocurrió un error. Intenta nuevamente.");
+  });
+});
+</script>
+
+  
 </body>
 </html>
