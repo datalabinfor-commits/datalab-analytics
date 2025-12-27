@@ -9,7 +9,6 @@
 <meta name="description" content="Automatizamos procesos en laboratorios, clínicas y consultorios dentales. Control operativo, reportes claros y menos trabajo manual.">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 <style>
 :root{
@@ -19,7 +18,7 @@
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Inter',sans-serif;background:var(--dark);color:white;overflow-x:hidden;}
+body{font-family:'Inter',sans-serif;background:var(--dark);color:white;scroll-behavior:smooth;}
 
 nav{
 display:flex;justify-content:space-between;align-items:center;
@@ -28,203 +27,196 @@ background:rgba(15,42,58,.95);backdrop-filter:blur(15px);
 z-index:1000;border-bottom:1px solid rgba(255,255,255,.1);
 }
 
-.logo img{height:70px;cursor:pointer;}
+.logo img{height:65px;}
 .nav-links a{color:white;text-decoration:none;margin-left:25px;font-weight:500;}
 .nav-links a:hover{color:var(--primary);}
 .btn-demo-nav{background:var(--primary);color:var(--dark)!important;padding:10px 25px;border-radius:50px;font-weight:700;}
 
-.menu-icon{display:none;font-size:30px;cursor:pointer;}
+section{padding:100px 0;}
+.container{width:85%;max-width:1100px;margin:auto;}
 
-@media(max-width:992px){
-.menu-icon{display:block;}
-.nav-links{display:none;flex-direction:column;position:absolute;top:100%;left:0;width:100%;background:var(--dark);padding:30px;}
-.nav-links.active{display:flex;}
-.nav-links a{margin:15px 0;font-size:1.2rem;}
-}
-
-.gradient-text{
-background:linear-gradient(90deg,#fff,#19c1c1,#fff);
-background-size:200%;
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-animation:gradient 3s linear infinite;
-}
-
-@keyframes gradient{to{background-position:200% center;}}
-
-.page-content{display:none;}
-.active-page{display:block;}
-
-section{padding:100px 0;display:flex;justify-content:center;}
-.container{width:85%;max-width:1100px;}
-.section-dark{background:var(--dark);}
-.section-light{background:var(--light);color:var(--dark);}
+h1{font-size:3rem;margin-bottom:20px;}
+h2{font-size:2.4rem;margin-bottom:25px;color:var(--primary);}
+p{line-height:1.6;}
 
 .flex{display:flex;gap:60px;align-items:center;flex-wrap:wrap;}
 .flex-item{flex:1;min-width:320px;}
 
-h1{font-size:3.2rem;line-height:1.1;margin-bottom:25px;}
-h2{font-size:2.5rem;margin-bottom:30px;color:var(--primary);}
-p{line-height:1.6;}
-
-.img-wrapper img{
-width:100%;border-radius:20px;
-box-shadow:0 20px 40px rgba(0,0,0,.5);
-}
+.section-light{background:white;color:var(--dark);}
+.section-dark{background:var(--dark);}
 
 .btn-main{
 background:var(--primary);color:var(--dark);
-padding:18px 45px;border-radius:50px;
-font-weight:700;text-decoration:none;border:none;cursor:pointer;
+padding:15px 40px;border-radius:50px;
+font-weight:700;border:none;cursor:pointer;
 }
 
-.pricing-grid{display:flex;gap:25px;justify-content:center;flex-wrap:wrap;margin-top:40px;}
+video{width:100%;border-radius:20px;box-shadow:0 20px 40px rgba(0,0,0,.4);}
+
+.pricing-grid{display:flex;gap:25px;justify-content:center;flex-wrap:wrap;}
 .price-card{
 background:rgba(255,255,255,.05);
 border:1px solid rgba(255,255,255,.1);
-padding:40px 30px;border-radius:30px;width:330px;text-align:center;
+padding:35px;border-radius:25px;width:320px;text-align:center;
 }
-.price-card.featured{border:2px solid var(--primary);background:rgba(25,193,193,.08);transform:scale(1.05);}
 
 .contact-card{
 background:white;color:var(--dark);
-padding:40px;border-radius:30px;
-max-width:850px;margin:auto;
-box-shadow:0 30px 60px rgba(0,0,0,.15);
+padding:40px;border-radius:25px;
+max-width:900px;margin:auto;
+box-shadow:0 30px 60px rgba(0,0,0,.2);
 }
 
-.contact-form{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
-.contact-form input,.contact-form textarea{
-width:100%;padding:15px;border:1px solid #e2e8f0;border-radius:12px;
-}
-.full-w{grid-column:span 2;}
-
-@media(max-width:768px){
-.contact-form{grid-template-columns:1fr;}
-.full-w{grid-column:span 1;}
-h1{font-size:2.2rem;}
+form{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+input,select,textarea{
+width:100%;padding:15px;border-radius:12px;
+border:1px solid #e2e8f0;
 }
 
-footer{padding:60px 10%;background:#08161f;text-align:center;}
+.full{grid-column:span 2;}
+
+footer{padding:50px;text-align:center;background:#08161f;}
 </style>
 </head>
 
 <body>
 
 <nav>
-<div class="logo" onclick="showPage('home')"><img src="logo.png"></div>
-<div class="menu-icon" onclick="toggleMenu()">☰</div>
-<div class="nav-links" id="navLinks">
-<a onclick="showPage('home')">Inicio</a>
-<a onclick="showPage('servicios')">Soluciones</a>
-<a onclick="showPage('contacto')">Contacto</a>
-<a class="btn-demo-nav" onclick="showPage('contacto')">Solicitar demo</a>
+<div class="logo"><img src="logo.png"></div>
+<div class="nav-links">
+<a href="#inicio">Inicio</a>
+<a href="#demo">Demo</a>
+<a href="#paquetes">Paquetes</a>
+<a href="#nosotros">Quiénes somos</a>
+<a href="#blog">Blog</a>
+<a class="btn-demo-nav" href="#form-demo">Solicitar demo</a>
 </div>
 </nav>
 
-<!-- HOME -->
-<div id="home" class="page-content active-page">
-
-<section class="section-dark" style="padding-top:150px;">
-<div class="container">
-<div class="flex">
-<div class="flex-item" data-aos="fade-right">
-<h1 class="gradient-text">
-Automatización y control para laboratorios y clínicas
-</h1>
-<p>
-Ayudamos a laboratorios, clínicas médicas y consultorios dentales a
-reducir trabajo manual, centralizar información y tomar decisiones claras.
-</p><br>
-<a class="btn-main" onclick="showPage('contacto')">Solicitar demo</a>
+<!-- INICIO -->
+<section id="inicio" class="section-dark" style="padding-top:150px;">
+<div class="container flex">
+<div class="flex-item">
+<h1>Automatización para laboratorios y clínicas</h1>
+<p>Centraliza información, reduce errores y toma mejores decisiones con DataLab Analytics.</p><br>
+<a href="#form-demo" class="btn-main">Solicitar demo</a>
 </div>
-<div class="flex-item img-wrapper" data-aos="zoom-in">
-<img src="imagen2.png">
-</div>
+<div class="flex-item">
+<img src="imagen2.png" style="width:100%;border-radius:20px;">
 </div>
 </div>
 </section>
 
-<section class="section-light">
+<!-- DEMO -->
+<section id="demo" class="section-light">
 <div class="container">
-<h2 data-aos="fade-up">¿Qué problemas resolvemos?</h2>
-<div class="flex">
-<div class="flex-item" data-aos="fade-right">
-<ul>
-<li>✔ Registros manuales y duplicados</li>
-<li>✔ Falta de control de citas y estudios</li>
-<li>✔ Reportes tardíos o incompletos</li>
-<li>✔ Información dispersa entre sistemas</li>
-</ul>
-</div>
-<div class="flex-item img-wrapper" data-aos="fade-left">
-<img src="imagen8.png">
-</div>
-</div>
+<h2>Demo del sistema</h2>
+<p>Así funciona DataLab Analytics en un entorno real.</p><br>
+<video controls>
+<source src="demo.mp4" type="video/mp4">
+Tu navegador no soporta video.
+</video>
 </div>
 </section>
 
-<section class="section-dark" id="servicios">
+<!-- PAQUETES -->
+<section id="paquetes" class="section-dark">
 <div class="container">
-<h2 data-aos="fade-up">Soluciones por tipo de cliente</h2>
-
+<h2>Paquetes</h2>
 <div class="pricing-grid">
-<div class="price-card" data-aos="flip-left">
-<h3>Laboratorios</h3>
-<p>Control de muestras, resultados, reportes y trazabilidad.</p>
+<div class="price-card">
+<h3>Básico</h3>
+<p>$899 MXN / mes</p>
+<p>Automatización básica y reportes generales.</p>
 </div>
-
-<div class="price-card featured" data-aos="flip-left">
-<h3>Clínicas</h3>
-<p>Gestión de pacientes, citas, historial y reportes operativos.</p>
+<div class="price-card">
+<h3>Profesional</h3>
+<p>$1,899 MXN / mes</p>
+<p>Integraciones, seguimiento y soporte prioritario.</p>
 </div>
-
-<div class="price-card" data-aos="flip-left">
-<h3>Consultorios Dentales</h3>
-<p>Seguimiento de tratamientos, pagos y productividad.</p>
+<div class="price-card">
+<h3>Premium</h3>
+<p>$3,200 MXN / mes</p>
+<p>Dashboards avanzados y automatización personalizada.</p>
 </div>
 </div>
 </div>
 </section>
 
-<section class="section-light" id="contacto">
+<!-- NOSOTROS -->
+<section id="nosotros" class="section-light">
 <div class="container">
-<div class="contact-card" data-aos="fade-up">
-<h2 style="text-align:center;">Solicita una demostración</h2>
+<h2>Quiénes somos</h2>
+<p>
+DataLab Analytics desarrolla soluciones digitales enfocadas en el sector salud,
+ayudando a laboratorios, clínicas y consultorios dentales a optimizar su operación
+mediante automatización y análisis de datos.
+</p>
+</div>
+</section>
 
-<form class="contact-form">
-<input type="text" placeholder="Nombre completo" required>
-<input type="email" placeholder="Correo electrónico" required>
-<input type="text" placeholder="Empresa">
-<input type="tel" placeholder="Teléfono">
-<textarea class="full-w" rows="4" placeholder="¿Qué te gustaría automatizar?"></textarea>
-<button class="btn-main full-w">Enviar solicitud</button>
+<!-- BLOG -->
+<section id="blog" class="section-dark">
+<div class="container">
+<h2>Blog</h2>
+<p>Contenido especializado en automatización y gestión para el sector salud. Próximamente.</p>
+</div>
+</section>
+
+<!-- FORM DEMO -->
+<section id="form-demo" class="section-light">
+<div class="container">
+<div class="contact-card">
+<h2 style="text-align:center;">Solicitar demo</h2>
+
+<form id="demoForm">
+<input name="nombre" placeholder="Nombre completo" required>
+<input name="email" type="email" placeholder="Correo electrónico" required>
+<input name="telefono" placeholder="Teléfono">
+<input name="empresa" placeholder="Empresa / Clínica / Laboratorio">
+
+<select name="tipo" class="full" required>
+<option value="">Tipo de empresa</option>
+<option>Laboratorio</option>
+<option>Clínica</option>
+<option>Consultorio dental</option>
+</select>
+
+<textarea name="necesidad" class="full" rows="4" placeholder="¿Qué proceso te gustaría automatizar?" required></textarea>
+
+<button class="btn-main full">Enviar solicitud</button>
 </form>
 
+<p id="status" style="margin-top:15px;"></p>
+
 </div>
 </div>
 </section>
 
-</div>
-
 <footer>
-<img src="logo.png" style="height:50px;margin-bottom:20px;">
-<p>DataLab Analytics · Soluciones digitales para el sector salud</p>
-<p style="opacity:.6;margin-top:10px;">© 2025</p>
+<p>DataLab Analytics · © 2025</p>
 </footer>
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-AOS.init({duration:1000,once:true});
-function showPage(id){
-document.querySelectorAll('.page-content').forEach(p=>p.classList.remove('active-page'));
-document.getElementById(id).classList.add('active-page');
-document.getElementById('navLinks').classList.remove('active');
-window.scrollTo(0,0);
+document.getElementById("demoForm").addEventListener("submit",async function(e){
+e.preventDefault();
+document.getElementById("status").innerText="Enviando solicitud...";
+
+const data=Object.fromEntries(new FormData(this).entries());
+
+const res=await fetch("PEGAR_AQUI_URL_APPS_SCRIPT",{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify(data)
+});
+
+if(res.ok){
+document.getElementById("status").innerText="Solicitud enviada. Revisa tu correo.";
+this.reset();
+}else{
+document.getElementById("status").innerText="Error al enviar. Intenta nuevamente.";
 }
-function toggleMenu(){
-document.getElementById('navLinks').classList.toggle('active');
-}
+});
 </script>
 
 </body>
