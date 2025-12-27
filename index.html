@@ -1,222 +1,210 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataLab Analytics | Intelligent Data Solutions</title>
 
-<title>DataLab Analytics | Automatización para Laboratorios y Clínicas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-<meta name="description" content="Automatizamos procesos en laboratorios, clínicas y consultorios dentales. Control operativo, reportes claros y menos trabajo manual.">
+    <style>
+        :root {
+            --primary: #19c1c1;
+            --dark-bg: #0f2a3a;
+            --light-bg: #ffffff;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--dark-bg); color: white; overflow-x: hidden; }
 
-<style>
-:root{
---primary:#19c1c1;
---dark:#0f2a3a;
---light:#ffffff;
-}
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 10px 7%; background: rgba(15,42,58,0.95);
+            backdrop-filter: blur(15px); position: fixed; width: 100%; top: 0; z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .logo img { height: 75px; cursor: pointer; }
+        .nav-links a {
+            color: white; text-decoration: none; margin-left: 25px;
+            font-weight: 500; cursor: pointer;
+        }
+        .nav-links a:hover { color: var(--primary); }
+        .btn-demo-nav {
+            background: var(--primary); color: var(--dark-bg) !important;
+            padding: 10px 25px; border-radius: 50px; font-weight: 700 !important;
+        }
+        .menu-icon { display: none; font-size: 30px; cursor: pointer; }
 
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Inter',sans-serif;background:var(--dark);color:white;scroll-behavior:smooth;}
+        @media (max-width: 992px) {
+            .menu-icon { display: block; }
+            .nav-links {
+                display: none; flex-direction: column;
+                position: absolute; top: 100%; left: 0;
+                width: 100%; background: var(--dark-bg);
+                padding: 30px;
+            }
+            .nav-links.active { display: flex; }
+            .nav-links a { margin: 15px 0; font-size: 1.2rem; }
+        }
 
-nav{
-display:flex;justify-content:space-between;align-items:center;
-padding:10px 7%;position:fixed;width:100%;top:0;
-background:rgba(15,42,58,.95);backdrop-filter:blur(15px);
-z-index:1000;border-bottom:1px solid rgba(255,255,255,.1);
-}
+        section { padding: 100px 0; display: flex; justify-content: center; }
+        .container { width: 85%; max-width: 1100px; }
+        .section-light { background: var(--light-bg); color: var(--dark-bg); }
+        .section-dark { background: var(--dark-bg); color: white; }
 
-.logo img{height:65px;}
-.nav-links a{color:white;text-decoration:none;margin-left:25px;font-weight:500;}
-.nav-links a:hover{color:var(--primary);}
-.btn-demo-nav{background:var(--primary);color:var(--dark)!important;padding:10px 25px;border-radius:50px;font-weight:700;}
+        .flex { display: flex; align-items: center; gap: 60px; flex-wrap: wrap; }
+        .flex-item { flex: 1; min-width: 320px; }
 
-section{padding:100px 0;}
-.container{width:85%;max-width:1100px;margin:auto;}
+        h1 { font-size: 3.5rem; margin-bottom: 25px; }
+        h2 { font-size: 2.8rem; margin-bottom: 30px; color: var(--primary); }
 
-h1{font-size:3rem;margin-bottom:20px;}
-h2{font-size:2.4rem;margin-bottom:25px;color:var(--primary);}
-p{line-height:1.6;}
+        .gradient-text {
+            background: linear-gradient(90deg,#fff,#19c1c1,#fff);
+            background-size: 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient 3s linear infinite;
+        }
+        @keyframes gradient { to { background-position: 200% center; } }
 
-.flex{display:flex;gap:60px;align-items:center;flex-wrap:wrap;}
-.flex-item{flex:1;min-width:320px;}
+        .img-wrapper img {
+            width: 100%; border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
 
-.section-light{background:white;color:var(--dark);}
-.section-dark{background:var(--dark);}
+        .video-wrapper {
+            position: relative; padding-bottom: 56.25%; height: 0;
+            overflow: hidden; border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+        }
+        .video-wrapper iframe {
+            position: absolute; width: 100%; height: 100%; border: 0;
+        }
 
-.btn-main{
-background:var(--primary);color:var(--dark);
-padding:15px 40px;border-radius:50px;
-font-weight:700;border:none;cursor:pointer;
-}
+        .pricing-grid { display: flex; gap: 25px; justify-content: center; flex-wrap: wrap; }
+        .price-card {
+            background: rgba(255,255,255,0.05);
+            padding: 40px 30px; border-radius: 30px; width: 330px;
+        }
+        .price-card.featured { border: 2px solid var(--primary); transform: scale(1.05); }
 
-video{width:100%;border-radius:20px;box-shadow:0 20px 40px rgba(0,0,0,.4);}
+        .contact-card {
+            background: white; padding: 40px; border-radius: 30px;
+            color: var(--dark-bg); max-width: 850px;
+        }
+        .contact-form {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%; padding: 15px; border-radius: 12px;
+            border: 1px solid #e5e7eb;
+        }
+        .full-w { grid-column: span 2; }
+        .btn-main {
+            background: var(--primary); color: var(--dark-bg);
+            padding: 18px; border-radius: 50px; font-weight: 700;
+            border: none; cursor: pointer;
+        }
 
-.pricing-grid{display:flex;gap:25px;justify-content:center;flex-wrap:wrap;}
-.price-card{
-background:rgba(255,255,255,.05);
-border:1px solid rgba(255,255,255,.1);
-padding:35px;border-radius:25px;width:320px;text-align:center;
-}
-
-.contact-card{
-background:white;color:var(--dark);
-padding:40px;border-radius:25px;
-max-width:900px;margin:auto;
-box-shadow:0 30px 60px rgba(0,0,0,.2);
-}
-
-form{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
-input,select,textarea{
-width:100%;padding:15px;border-radius:12px;
-border:1px solid #e2e8f0;
-}
-
-.full{grid-column:span 2;}
-
-footer{padding:50px;text-align:center;background:#08161f;}
-</style>
+        footer { padding: 60px; background: #08161f; text-align: center; }
+    </style>
 </head>
 
 <body>
 
 <nav>
-<div class="logo"><img src="logo.png"></div>
-<div class="nav-links">
-<a href="#inicio">Inicio</a>
-<a href="#demo">Demo</a>
-<a href="#paquetes">Paquetes</a>
-<a href="#nosotros">Quiénes somos</a>
-<a href="#blog">Blog</a>
-<a class="btn-demo-nav" href="#form-demo">Solicitar demo</a>
-</div>
+    <div class="logo" onclick="scrollToId('inicio')">
+        <img src="logo.png" alt="DataLab">
+    </div>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    <div class="nav-links" id="navLinks">
+        <a onclick="scrollToId('solucion')">Soluciones</a>
+        <a onclick="scrollToId('demo')">Demo</a>
+        <a onclick="scrollToId('contacto')">Contacto</a>
+        <a onclick="scrollToId('demo')" class="btn-demo-nav">Solicitar demo</a>
+    </div>
 </nav>
 
-<!-- INICIO -->
 <section id="inicio" class="section-dark" style="padding-top:150px;">
-<div class="container flex">
-<div class="flex-item">
-<h1>Automatización para laboratorios y clínicas</h1>
-<p>Centraliza información, reduce errores y toma mejores decisiones con DataLab Analytics.</p><br>
-<a href="#form-demo" class="btn-main">Solicitar demo</a>
-</div>
-<div class="flex-item">
-<img src="imagen2.png" style="width:100%;border-radius:20px;">
-</div>
-</div>
+    <div class="container flex">
+        <div class="flex-item" data-aos="fade-right">
+            <h1 class="gradient-text">DataLab es la transformación para tu negocio</h1>
+            <p>Soluciones tecnológicas para laboratorios, clínicas y consultorios.</p>
+            <br>
+            <button class="btn-main" onclick="scrollToId('demo')">Solicitar demo</button>
+        </div>
+        <div class="flex-item img-wrapper" data-aos="zoom-in">
+            <img src="imagen2.png">
+        </div>
+    </div>
 </section>
 
-<!-- DEMO -->
+<section id="solucion" class="section-light">
+    <div class="container flex">
+        <div class="flex-item" data-aos="fade-left">
+            <h2>Producto en acción</h2>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID_AQUI" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="flex-item" data-aos="fade-right">
+            <p>Visualiza en tiempo real tus operaciones, automatiza procesos y toma decisiones basadas en datos confiables.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section-dark">
+    <div class="container">
+        <h2 style="text-align:center;">Nuestros Paquetes</h2>
+        <div class="pricing-grid">
+            <div class="price-card">Básico</div>
+            <div class="price-card featured">Profesional</div>
+            <div class="price-card">Premium</div>
+        </div>
+    </div>
+</section>
+
 <section id="demo" class="section-light">
-<div class="container">
-<h2>Demo del sistema</h2>
-<p>Así funciona DataLab Analytics en un entorno real.</p><br>
-<video controls>
-<source src="demo.mp4" type="video/mp4">
-Tu navegador no soporta video.
-</video>
-</div>
+    <div class="container">
+        <div class="contact-card" data-aos="fade-up">
+            <h2 style="text-align:center;">Solicitar Demo</h2>
+
+            <form class="contact-form"
+                  action="https://formsubmit.co/DataLab.infor@gmail.com"
+                  method="POST">
+
+                <input type="hidden" name="_subject" value="Nueva solicitud de demo DataLab">
+                <input type="hidden" name="_autoresponse"
+                       value="Gracias por solicitar una demo de DataLab. Te contactaremos en breve.">
+
+                <input type="text" name="Nombre" placeholder="Nombre completo" required>
+                <input type="email" name="Email" placeholder="Correo electrónico" required>
+                <input type="text" name="Empresa" placeholder="Empresa">
+                <input type="tel" name="Teléfono" placeholder="Teléfono">
+                <textarea class="full-w" name="Mensaje" rows="4" placeholder="Cuéntanos tu necesidad"></textarea>
+                <button class="btn-main full-w" type="submit">Enviar solicitud</button>
+            </form>
+        </div>
+    </div>
 </section>
 
-<!-- PAQUETES -->
-<section id="paquetes" class="section-dark">
-<div class="container">
-<h2>Paquetes</h2>
-<div class="pricing-grid">
-<div class="price-card">
-<h3>Básico</h3>
-<p>$899 MXN / mes</p>
-<p>Automatización básica y reportes generales.</p>
-</div>
-<div class="price-card">
-<h3>Profesional</h3>
-<p>$1,899 MXN / mes</p>
-<p>Integraciones, seguimiento y soporte prioritario.</p>
-</div>
-<div class="price-card">
-<h3>Premium</h3>
-<p>$3,200 MXN / mes</p>
-<p>Dashboards avanzados y automatización personalizada.</p>
-</div>
-</div>
-</div>
-</section>
-
-<!-- NOSOTROS -->
-<section id="nosotros" class="section-light">
-<div class="container">
-<h2>Quiénes somos</h2>
-<p>
-DataLab Analytics desarrolla soluciones digitales enfocadas en el sector salud,
-ayudando a laboratorios, clínicas y consultorios dentales a optimizar su operación
-mediante automatización y análisis de datos.
-</p>
-</div>
-</section>
-
-<!-- BLOG -->
-<section id="blog" class="section-dark">
-<div class="container">
-<h2>Blog</h2>
-<p>Contenido especializado en automatización y gestión para el sector salud. Próximamente.</p>
-</div>
-</section>
-
-<!-- FORM DEMO -->
-<section id="form-demo" class="section-light">
-<div class="container">
-<div class="contact-card">
-<h2 style="text-align:center;">Solicitar demo</h2>
-
-<form id="demoForm">
-<input name="nombre" placeholder="Nombre completo" required>
-<input name="email" type="email" placeholder="Correo electrónico" required>
-<input name="telefono" placeholder="Teléfono">
-<input name="empresa" placeholder="Empresa / Clínica / Laboratorio">
-
-<select name="tipo" class="full" required>
-<option value="">Tipo de empresa</option>
-<option>Laboratorio</option>
-<option>Clínica</option>
-<option>Consultorio dental</option>
-</select>
-
-<textarea name="necesidad" class="full" rows="4" placeholder="¿Qué proceso te gustaría automatizar?" required></textarea>
-
-<button class="btn-main full">Enviar solicitud</button>
-</form>
-
-<p id="status" style="margin-top:15px;"></p>
-
-</div>
-</div>
-</section>
-
-<footer>
-<p>DataLab Analytics · © 2025</p>
+<footer id="contacto">
+    <img src="logo.png" style="height:50px;">
+    <p>DataLab Analytics · Intelligent Data Solutions</p>
+    <p style="opacity:.6;">© 2025</p>
 </footer>
 
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-document.getElementById("demoForm").addEventListener("submit",async function(e){
-e.preventDefault();
-document.getElementById("status").innerText="Enviando solicitud...";
-
-const data=Object.fromEntries(new FormData(this).entries());
-
-const res=await fetch("PEGAR_AQUI_URL_APPS_SCRIPT",{
-method:"POST",
-headers:{"Content-Type":"application/json"},
-body:JSON.stringify(data)
-});
-
-if(res.ok){
-document.getElementById("status").innerText="Solicitud enviada. Revisa tu correo.";
-this.reset();
-}else{
-document.getElementById("status").innerText="Error al enviar. Intenta nuevamente.";
-}
-});
+    AOS.init({ duration: 1000, once: true });
+    function toggleMenu() {
+        document.getElementById('navLinks').classList.toggle('active');
+    }
+    function scrollToId(id) {
+        document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('navLinks').classList.remove('active');
+    }
 </script>
 
 </body>
