@@ -161,25 +161,41 @@ footer{padding:60px;background:#08161f;text-align:center}
 </div>
 </section>
 
-<section class="section-dark">
-<div class="container">
-<h2 style="text-align:center">Nuestros Paquetes</h2>
-<div class="pricing-grid">
-<div class="price-card">
-<h3>Básico</h3>
-<p>Automatización esencial y reportes generales.</p>
-</div>
-<div class="price-card featured">
-<h3>Profesional</h3>
-<p>Integraciones, seguimiento y control operativo.</p>
-</div>
-<div class="price-card">
-<h3>Premium</h3>
-<p>Dashboards avanzados y automatizaciones personalizadas.</p>
-</div>
-</div>
-</div>
-</section>
+<section class="section-dark" style="text-align: center;">
+            <div class="container">
+                <h2 data-aos="fade-up">Nuestros Paquetes</h2>
+                <div class="pricing-grid">
+                    <div class="price-card" data-aos="flip-left">
+                        <h3>Paquete Básico</h3>
+                        <ul>
+                            <li>• Automatización básica de tareas</li>
+                            <li>• Panel de reportes generales</li>
+                            <li>• Respaldo de datos mensual</li>
+                            <li>• Soporte por chat</li>
+                        </ul>
+                    </div>
+                    <div class="price-card featured" data-aos="flip-left" data-aos-delay="100">
+                        <h3>Paquete Profesional</h3>
+                        <ul>
+                            <li>• Todo lo del Paquete Básico</li>
+                            <li>• Integración con herramientas modernas</li>
+                            <li>• Automatización de seguimiento</li>
+                            <li>• Soporte prioritario</li>
+                        </ul>
+                    </div>
+                    <div class="price-card" data-aos="flip-left" data-aos-delay="200">
+                        <h3>Paquete Premium</h3>
+                        <ul>
+                            <li>• Todo lo del Paquete Profesional</li>
+                            <li>• Automatizaciones personalizadas</li>
+                            <li>• Dashboards y análisis avanzado</li>
+                            <li>• Sesión mensual de resultados</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
 
 <section id="demo" class="section-light">
 <div class="container">
@@ -194,13 +210,13 @@ method="POST">
 <input type="hidden" name="_autoresponse" value="Gracias por contactar a DataLab. Pronto te escribiremos.">
 
 <input type="text" name="Nombre" placeholder="Nombre completo" required>
-<input type="email" name="Email" placeholder="Correo corporativo" required>
+<input type="email" name="Email" placeholder="Correo electronico" required>
 
 <select name="Tipo de empresa" required>
 <option value="">Tipo de empresa</option>
-<option>Laboratorio</option>
-<option>Clínica</option>
+<option>Laboratorio o clínica</option>
 <option>Consultorio dental</option>
+<option>Emprendimiento</option>
 <option>Otro</option>
 </select>
 
