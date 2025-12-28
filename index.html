@@ -249,21 +249,15 @@ document.getElementById("contactForm").addEventListener("submit", function(e){
 
   fetch("https://script.google.com/macros/s/AKfycbyVIDxNFOyZzD430X2HGNW7EU7oWduWWBmRlJTR4vR237dqS4vM4bjOYQgbBA2G-00N/exec", {
     method: "POST",
+    mode: "no-cors",
     headers: {
       "Content-Type": "application/json"
     },
     body: JSON.stringify(data)
-  })
-  .then(response => response.text())
-  .then(text => {
-    console.log("Servidor:", text);
+  });
+  
     alert("Gracias, hemos recibido tu solicitud de demo.");
     this.reset();
-  })
-  .catch(error => {
-    console.error(error);
-    alert("Ocurrió un error. Intenta nuevamente.");
-  });
 });
 </script>
   
